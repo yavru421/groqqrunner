@@ -20,22 +20,27 @@ GroqRunner is a feature-rich development environment that combines terminal func
 - Windows OS (required for single-instance prevention and some file system operations)
 - Groq API key
 
-## Installation
+## Downloading the Application
 
-1. Clone or download this repository
+The latest version of GroqRunner with Llama Guard can be downloaded as a portable Windows executable from the [**GitHub Releases page**](https://github.com/yavru421/groqqrunner/releases).
+
+Look for `GroqRunner_llamaguard.exe` under the assets of the latest release.
+
+## Building from Source (Alternative to Download)
+
+If you prefer to build the application from source:
+
+1. Clone or download this repository.
 2. Install the required dependencies:
-```
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. To run the application from source:
+   ```bash
+   python main.py
+   ```
 
 ## Usage
-
-### Starting the Application
-
-Run the main script:
-```
-python main.py
-```
 
 ### First-Time Setup
 
@@ -103,23 +108,27 @@ This version uses Groq's Llama Guard 3 for content moderation. All AI responses 
 
 ## Building the Portable EXE
 
-To build the portable Llama Guard version:
+To build the portable Llama Guard version yourself (if you're not downloading from Releases):
 
-1. Make sure your `requirements.txt` is up to date.
-2. Run:
-   ```
+1. Make sure your `requirements.txt` is up to date and PyInstaller is installed (`pip install pyinstaller`).
+2. The PyInstaller specification file (`GroqRunner_llamaguard.spec`) is configured for this build. If you need to regenerate it or modify it, you can, but the provided one should work.
+3. Run PyInstaller:
+   ```bash
    pyinstaller GroqRunner_llamaguard.spec
    ```
-3. The resulting `GroqRunner_llamaguard.exe` will be in the `dist/` or `build/` directory.
+4. The resulting `GroqRunner_llamaguard.exe` will be in the `dist/` directory. (Note: For official downloads, please use the [GitHub Releases page](https://github.com/yavru421/groqqrunner/releases)).
 
 ## GitHub Repository
 
-Only the following files are tracked in the repository:
-- `main.py`
-- `README.md`
-- `GroqRunner_llamaguard.exe` (for releases)
+The following core files are tracked in the repository:
+- `main.py` (Main application source code)
+- `README.md` (This file)
+- `requirements.txt` (Python dependencies)
+<!-- If you decide to track .spec files, add it here. e.g., - `GroqRunner_llamaguard.spec` (PyInstaller specification) -->
 
-All other files are ignored for security and portability.
+The `GroqRunner_llamaguard.exe` executable is distributed via [**GitHub Releases**](https://github.com/yavru421/groqqrunner/releases).
+
+Build artifacts, local logs (`application.log`), PyInstaller spec files (`*.spec`), and local configurations are generally ignored by `.gitignore` for security and portability.
 
 ## Contributing
 
